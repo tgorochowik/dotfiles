@@ -10,9 +10,6 @@
 [submodule "vim/.vim/bundle/vim-addon-mw-utils"]
 	path = vim/.vim/bundle/vim-addon-mw-utils
 	url = https://github.com/marcweber/vim-addon-mw-utils
-[submodule "vim/.vim/bundle/powerline"]
-	path = vim/.vim/bundle/powerline
-	url = https://github.com/Lokaltog/powerline
 [submodule "vim/.vim/bundle/vim-snipmate"]
 	path = vim/.vim/bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate
@@ -22,3 +19,6 @@
 [submodule "vim/.vim/bundle/vim-pathogen"]
 	path = vim/.vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
+[submodule "vim/.vim/bundle/vim-powerline"]
+	path = vim/.vim/bundle/vim-powerline
+	url = https://github.com/Lokaltog/vim-powerline
