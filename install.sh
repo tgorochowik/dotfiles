@@ -1,9 +1,11 @@
 #!/usr/bin/env bash
 
-#find dir of the script
+# get submodules
+git submodule init
+git submodule update
 
+# find dir of the script
 dir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
 
 # create backup dir
 if [ ! -e "$dir/backup" ]; then
