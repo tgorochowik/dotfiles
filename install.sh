@@ -45,3 +45,16 @@ if [ -e "$vimrc_path" ]; then
   fi
 fi
 ln -s "$dir/vim/.vimrc" "$vimrc_path"
+
+# bash
+if [ -e ~/.bash_profile ]; then
+  if [ -L ~/.bash_profile ]; then
+    rm ~/.bash_profile
+  else
+    if [ ! -d "$dir/backup/misc/" ]; then
+      mkdir "$dir/backup/misc/"
+    fi
+    mv ~/.bash_profile "$dir/backup/misc"
+  fi
+fi
+ln -s "$dir/misc/.bash_profile" ~/.bash_profile
