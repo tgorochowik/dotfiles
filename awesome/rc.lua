@@ -46,7 +46,7 @@ end
 run_once("unclutter")
 
 -- beautiful init
-beautiful.init("/home/goru/.config/awesome/themes/mine/theme.lua")
+beautiful.init("~/.config/awesome/themes/mine/theme.lua")
 
 -- {{{ Variable definitions
 terminal = "urxvt"
@@ -107,7 +107,6 @@ mytextclock = awful.widget.textclock(" %a %b %d, %H:%M:%S", 1)
 lain.widgets.calendar:attach(mytextclock, { font_size = 8 })
 
 sep = wibox.widget.imagebox()
---sep:set_image("/home/goru/.config/awesome/themes/icons/separator.png")
 sep:set_image(beautiful.separator)
 
 
@@ -140,14 +139,12 @@ mailicon:buttons(awful.util.table.join(
         awful.util.spawn("/usr/bin/chromium gmail.com")
     end),
     awful.button({ }, 3, function()
-        --awful.util.spawn_with_shell("/home/goru/.config/awesome/scripts/mail.sh")
         mail_update()
     end)
  ))
 local gtimer= timer({ timeout = 59 })
 gtimer:connect_signal("timeout", function()
   mail_update()
-    --os.execute('/home/goru/.config/awesome/scripts/mail.sh & ')
 end)
 
 -- gtimer:start()
@@ -282,7 +279,7 @@ globalkeys = awful.util.table.join(
     awful.key({                   },
         "XF86Display",
         function()
-            awful.util.spawn_with_shell("/home/goru/.config/awesome/scripts/monitor.sh")
+            awful.util.spawn_with_shell("~/.config/awesome/scripts/monitor.sh")
         end ),
     --multimedia keys
     awful.key({                   },
@@ -306,12 +303,12 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey            },
         "Print",
         function()
-            awful.util.spawn_with_shell('scrot /home/goru/shots/'..os.date("%Y-%m-%d-%H%M%S")..'.png')
+            awful.util.spawn_with_shell('scrot ~/shots/'..os.date("%Y-%m-%d-%H%M%S")..'.png')
         end ),
     awful.key({},
         "Print",
         function()
-            awful.util.spawn_with_shell('import /home/goru/shots/'..os.date("%Y-%m-%d-%H%M%S")..'.png')
+            awful.util.spawn_with_shell('import ~/shots/'..os.date("%Y-%m-%d-%H%M%S")..'.png')
         end ),
     awful.key({                   },
         "XF86HomePage",

@@ -12,25 +12,25 @@ theme = {}
 ----------------------------------------------------------------------------------------------------
 -- moje dodatki right away
 ----------------------------------------------------------------------------------------------------
-theme.ulicon    = "/home/goru/.config/awesome/themes/icons/up.png"
-theme.dlicon    = "/home/goru/.config/awesome/themes/icons/down.png"
-theme.mailicon  = "/home/goru/.config/awesome/themes/icons/mail.png"
-theme.newmail   = "/home/goru/.config/awesome/themes/icons/mail_new.png"
-theme.separator = "/home/goru/.config/awesome/themes/icons/separator.png"
---theme.music     = "/home/goru/.config/awesome/themes/icons/music.png"
---theme.arch     = "/home/goru/.config/awesome/themes/icons/arch.png"
+theme.ulicon    = "~/.config/awesome/themes/icons/up.png"
+theme.dlicon    = "~/.config/awesome/themes/icons/down.png"
+theme.mailicon  = "~/.config/awesome/themes/icons/mail.png"
+theme.newmail   = "~/.config/awesome/themes/icons/mail_new.png"
+theme.separator = "~/.config/awesome/themes/icons/separator.png"
+--theme.music     = "~/.config/awesome/themes/icons/music.png"
+--theme.arch     = "~/.config/awesome/themes/icons/arch.png"
 ----------------------------------------------------------------------------------------------------
 --i te tylko zmienione przeze mnie:
 ----------------------------------------------------------------------------------------------------
-theme.taglist_squares_unsel = "/home/goru/.config/awesome/themes/icons/squareza.png"
-theme.taglist_squares_sel   = "/home/goru/.config/awesome/themes/icons/squarez.png"  
+theme.taglist_squares_unsel = "~/.config/awesome/themes/icons/squareza.png"
+theme.taglist_squares_sel   = "~/.config/awesome/themes/icons/squarez.png"  
 ----------------------------------------------------------------------------------------------------
 -- i po dodatkach :<
 ----------------------------------------------------------------------------------------------------
 --
 themes_dir = os.getenv("HOME") .. "/.config/awesome/themes/mine"
 
-theme.wallpaper = '/home/goru/Obrazy/wallpaper/sydney_clouds.jpg'
+theme.wallpaper = '~/Obrazy/wallpaper/sydney_clouds.jpg'
 -- }}}
 
 -- {{{ Styles
