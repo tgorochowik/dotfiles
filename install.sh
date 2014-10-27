@@ -30,7 +30,7 @@ if [ -d "$vim_path" ]; then
   if [ -L "$vim_path" ]; then
     rm "$vim_path"
   else
-    if [ ! -e "$dir/backup/vim/" ]; then
+    if [ ! -d "$dir/backup/vim/" ]; then
       mkdir "$dir/backup/vim/"
     fi
     mv "$vim_path" "$dir/backup/vim"
