@@ -58,3 +58,15 @@ if [ -e ~/.bash_profile ]; then
   fi
 fi
 ln -s "$dir/misc/.bash_profile" ~/.bash_profile
+
+if [ -e ~/.bashrc ]; then
+  if [ -L ~/.bashrc ]; then
+    rm ~/.bashrc
+  else
+    if [ ! -d "$dir/backup/misc/" ]; then
+      mkdir "$dir/backup/misc/"
+    fi
+    mv ~/.bashrc "$dir/backup/misc"
+  fi
+fi
+ln -s "$dir/misc/.bashrc" ~/.bashrc
