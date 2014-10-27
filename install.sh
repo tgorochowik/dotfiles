@@ -70,3 +70,15 @@ if [ -e ~/.bashrc ]; then
   fi
 fi
 ln -s "$dir/misc/.bashrc" ~/.bashrc
+
+if [ -e ~/.Xdefaults ]; then
+  if [ -L ~/.Xdefaults ]; then
+    rm ~/.Xdefaults
+  else
+    if [ ! -d "$dir/backup/misc/" ]; then
+      mkdir "$dir/backup/misc/"
+    fi
+    mv ~/.Xdefaults "$dir/backup/misc"
+  fi
+fi
+ln -s "$dir/misc/.Xdefaults" ~/.Xdefaults
