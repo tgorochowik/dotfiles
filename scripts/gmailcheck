@@ -7,15 +7,22 @@ from re import search
 from os.path import exists, expanduser
 from sys import stderr, argv
 import argparse
+from xml.dom.minidom import parseString
 
 
 parser=argparse.ArgumentParser()
+
+parser.add_argument('-c',
+                    action='store_true',
+                    dest='content',
+                    help='show content of messages')
 
 parser.add_argument('-t',
                     type=int,
                     default=1000,
                     dest='to',
                     help='curl timeout in miliseconds')
+
 args=parser.parse_args()
 
 def main():
@@ -23,6 +30,7 @@ def main():
     c = Curl()
     b = BytesIO()
     count = ""
+    content = ""
 
     # check if netrc exists
     if not exists(expanduser("~/.netrc")):
@@ -41,12 +49,40 @@ def main():
         c.close()
 
         # parse it
-        b = b.getvalue().decode('utf-8')
-        count = search('<fullcount>(.*)</fullcount>', b).group(1)
+        content = b.getvalue().decode('utf-8')
+        count = search('<fullcount>(.*)</fullcount>', content).group(1)
     except:
         count = "-1"
 
-    print(count)
+    if int(count) > 0 and args.content:
+        dom = parseString(content)
+        titles_raw = dom.getElementsByTagName("title")
+        titles_raw = titles_raw[1:]
+        authors_raw = dom.getElementsByTagName("email")
+        longest = 0
+
+        authors = []
+        titles = []
+        for i in range(0,len(titles_raw)):
+            titles.append(search('>(.*)<',titles_raw[i].toxml()).group(1))
+            authors.append(search('>(.*)<',authors_raw[i].toxml()).group(1))
+
+        for a in authors:
+            if len(a) > longest:
+                longest = len(a)
+
+        template = ""
+        for i in range(0,longest):
+            template = template + " "
+
+        for i in range(0,len(titles)):
+            a = authors[i]
+            t = titles[i]
+            a = template[:longest-len(a)]+a
+
+            print(a+": "+t)
+    else:
+        print(count)
 
 if __name__ == "__main__":
     main()
