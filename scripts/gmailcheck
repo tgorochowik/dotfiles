@@ -9,9 +9,7 @@ from sys import stderr, argv
 import argparse
 
 
-parser=argparse.ArgumentParser(
-            description='''My Description. And what a lovely description it is.''',
-            epilog="""All's well that ends well.""")
+parser=argparse.ArgumentParser()
 
 parser.add_argument('-t',
                     type=int,
