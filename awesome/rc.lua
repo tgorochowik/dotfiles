@@ -117,19 +117,18 @@ mailicon = wibox.widget.imagebox()
 mailicon:set_image(beautiful.widget_mail)
 
 mail_update=function()
-      --local cmd="if [[ -n $(nm-tool | grep State | grep global | grep connected) ]]; then echo -n `curl --silent -n \"https://mail.google.com/mail/feed/atom\" | tr -d '\\n' | sed 's/<\\//</g' | awk -F '<fullcount>' '{print $2}'`; else echo 'e';fi;"
-      local cmd="if [ '`ping -c 1 google.comd`' ]; then echo -n `curl --silent -n \"https://mail.google.com/mail/feed/atom\" | tr -d '\\n' | sed 's/<\\//</g' | awk -F '<fullcount>' '{print $2}'`; else echo 'e';fi;"
-      local f = io.popen(cmd)
-      --naughty.notify({ text = f:read("*all") })
-      gmailw:set_text(f:read("*all"))
-      f:close()
-    end
+      local c = os.getenv("HOME").."/.config/dotfiles/scripts/gmailcheck"
+      local f = io.popen(c)
+      local d = f:read("*all")
 
-mail_info=function()
-      local cmd="curl --silent -n \"https://mail.google.com/mail/feed/atom\" | grep 'title\\|summary\\|email' | sed 's/title/b/g;s/email/strong/g;s/summary/i/g'"
-      local f = io.popen(cmd)
-      naughty.notify({ text = f:read("*all"), timeout=0 })
-      --gmailw:set_text(f:read("*all"))
+      gmailw:set_text(d)
+
+      if tonumber(d) > 0 then
+        mailicon:set_image(beautiful.widget_mail_on)
+      else
+        mailicon:set_image(beautiful.widget_mail)
+      end
+
       f:close()
     end
 
@@ -147,7 +146,7 @@ gtimer:connect_signal("timeout", function()
   mail_update()
 end)
 
--- gtimer:start()
+gtimer:start()
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
