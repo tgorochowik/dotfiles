@@ -32,7 +32,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 # colorful grep
-export GREP_OPTIONS='--color=auto'
+alias grep='grep --color=always'
 
 # colorful ls
 alias ls='ls --color=auto'
