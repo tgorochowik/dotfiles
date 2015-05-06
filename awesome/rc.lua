@@ -185,6 +185,37 @@ batwidget = lain.widgets.bat({
     end
 })
 
+-- Thermal monitor using sensors cmd
+core_temp = wibox.widget.textbox()
+core_temp:set_text(" - ")
+core_icon = wibox.widget.imagebox()
+core_icon:set_image(beautiful.widget_temp)
+
+core_update=function()
+      local f = io.popen("sensors | sed -n -e \'s/.*+\\(.* \\)(.*/\\1/p\'")
+      local d = f:read("*all")
+
+      d = d:gsub("\n", "")
+      d = d:gsub("%s+$", "")
+
+      core_temp:set_text(d)
+
+      f:close()
+    end
+
+core_temp:buttons(awful.util.table.join(
+    awful.button({ }, 3, function()
+        core_update()
+    end)
+ ))
+
+local ctimer= timer({ timeout = 223 })
+ctimer:connect_signal("timeout", function()
+  core_update()
+end)
+
+ctimer:start()
+
 -- Create a wibox for each screen and add it
 mywibox = {}
 mypromptbox = {}
@@ -241,6 +272,9 @@ for s = 1, screen.count() do
     right_layout:add(sep)
     right_layout:add(mailicon)
     right_layout:add(gmailw)
+    right_layout:add(sep)
+    right_layout:add(core_icon)
+    right_layout:add(core_temp)
     right_layout:add(sep)
     right_layout:add(volicon)
     right_layout:add(volumewidget)
