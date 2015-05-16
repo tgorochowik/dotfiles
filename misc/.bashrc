@@ -37,5 +37,8 @@ alias grep='grep --color=always'
 # colorful ls
 alias ls='ls --color=auto'
 
+# git bash completion
+source /usr/share/git/completion/git-completion.bash
+
 # prompt
 PS1="\[\e[0;32m\]\u@\h\[\e[0;36m\]\w$ \[\e[0m\]"
