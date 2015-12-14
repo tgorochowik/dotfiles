@@ -31,8 +31,19 @@ let mapleader = ","
 "indents
 vnoremap < <gv
 vnoremap > >gv
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=red guibg=red
+
+" colorscheme: extra whitespace
+autocmd ColorScheme * highlight ExtraWhitespace ctermbg=238
 au InsertLeave * match ExtraWhitespace /\s\+$/
+
+" colorscheme: tabs
+autocmd ColorScheme * hi TabLineFill                 ctermfg=238
+autocmd ColorScheme * hi TabLine         ctermfg=15  ctermbg=238   cterm=none
+autocmd ColorScheme * hi TabLineSel      ctermfg=15  ctermbg=235   cterm=none
+
+" colorscheme: completion menu
+autocmd ColorScheme * hi Pmenu           ctermfg=15  ctermbg=238   cterm=none
+autocmd ColorScheme * hi PmenuSel        ctermfg=15  ctermbg=235   cterm=none
 
 map <C-h> <C-W>h
 map <C-j> <C-W>j
