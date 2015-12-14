@@ -8,9 +8,6 @@
 # vi-like shell
 #set -o vi
 
-# always exec tmux
-[[ -z "$TMUX" ]] && exec tmux
-
 # autocompletion
 complete -cf sudo
 complete -cf man
