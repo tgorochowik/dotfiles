@@ -33,9 +33,9 @@ let mapleader = ","
 vnoremap < <gv
 vnoremap > >gv
 
-" colorscheme: extra whitespace
-autocmd ColorScheme * highlight ExtraWhitespace ctermbg=238
-au InsertLeave * match ExtraWhitespace /\s\+$/
+" colorscheme: whitespace warning
+autocmd ColorScheme * highlight WhiteSpaceWarning ctermbg=235
+au InsertLeave * match WhiteSpaceWarning /\s\+$\|^	\+/
 
 " colorscheme: tabs
 autocmd ColorScheme * hi TabLineFill                 ctermfg=238
