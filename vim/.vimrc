@@ -25,6 +25,7 @@ set noswapfile
 set bs=2
 set history=700
 set undolevels=700
+set cursorline
 
 let mapleader = ","
 
