@@ -1,9 +1,18 @@
 runtime! archlinux.vim
 filetype off
 
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-call pathogen#infect()
-call pathogen#helptags()
+" manage plugins using Vundle
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'VundleVim/Vundle.vim'
+Plugin 'scrooloose/nerdtree'
+" tlib and mw-utils are snippets dependencies
+Plugin 'tomtom/tlib_vim'
+Plugin 'vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
+Plugin 'honza/vim-snippets'
+Plugin 'Lokaltog/vim-powerline'
+call vundle#end()
 
 filetype plugin indent on
 syntax on
