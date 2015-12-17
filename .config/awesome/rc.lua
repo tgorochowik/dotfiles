@@ -121,7 +121,7 @@ mailicon = wibox.widget.imagebox()
 mailicon:set_image(beautiful.widget_mail)
 
 mail_update=function()
-      local c = os.getenv("HOME").."/.config/dotfiles/scripts/gmailcheck"
+      local c = os.getenv("HOME") .. "/.local/bin/gmailcheck"
       local f = io.popen(c)
       local d = f:read("*all")
 
