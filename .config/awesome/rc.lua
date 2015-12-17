@@ -7,7 +7,11 @@ local wibox     = require("wibox")
 local beautiful = require("beautiful")
 local naughty   = require("naughty")
 local menubar   = require("menubar")
-local lain      = require("lain")
+
+-- slightly modified lain plugins
+local calendar  = require("calendar")
+local alsa      = require("alsa")
+local bat       = require("bat")
 
 
 -- {{{ Error handling
@@ -104,7 +108,7 @@ end
 --mytextclock = awful.widget.textclock()
 mytextclock = awful.widget.textclock(" %a %b %d, %H:%M:%S", 1)
 
-lain.widgets.calendar:attach(mytextclock, { font_size = 8 })
+calendar:attach(mytextclock, { font_size = 8 })
 
 sep = wibox.widget.imagebox()
 sep:set_image(beautiful.separator)
@@ -150,7 +154,7 @@ gtimer:start()
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
-volumewidget = lain.widgets.alsa({
+volumewidget = alsa({
     settings = function()
         if volume_now.status == "off" then
             volicon:set_image(beautiful.widget_vol_mute)
@@ -168,7 +172,7 @@ volumewidget = lain.widgets.alsa({
 
 -- Battery
 baticon = wibox.widget.imagebox(beautiful.widget_battery)
-batwidget = lain.widgets.bat({
+batwidget = bat({
     settings = function()
         if bat_now.perc == "N/A" then
             widget:set_markup(" AC ")
@@ -411,10 +415,7 @@ globalkeys = awful.util.table.join(
         end),
 
     -- utils
-    awful.key({ altkey,           }, "c",      function () lain.widgets.calendar:show(7) end),
-    awful.key({ altkey,           }, "h",      function () lain.widgets.fs.show(7) end),
-
-
+    awful.key({ altkey,           }, "c",      function () calendar:show(7) end),
 
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.util.spawn(terminal) end),
