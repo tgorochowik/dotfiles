@@ -1,24 +1,24 @@
-[submodule "awesome/lain"]
-	path = awesome/lain
+[submodule ".config/awesome/lain"]
+	path = .config/awesome/lain
 	url = https://github.com/copycat-killer/lain
-[submodule "vim/.vim/bundle/nerdtree"]
-	path = vim/.vim/bundle/nerdtree
+[submodule ".vim/bundle/nerdtree"]
+	path = .vim/bundle/nerdtree
 	url = https://github.com/scrooloose/nerdtree
-[submodule "vim/.vim/bundle/tlib_vim"]
-	path = vim/.vim/bundle/tlib_vim
+[submodule ".vim/bundle/tlib_vim"]
+	path = .vim/bundle/tlib_vim
 	url = https://github.com/tomtom/tlib_vim
-[submodule "vim/.vim/bundle/vim-addon-mw-utils"]
-	path = vim/.vim/bundle/vim-addon-mw-utils
+[submodule ".vim/bundle/vim-addon-mw-utils"]
+	path = .vim/bundle/vim-addon-mw-utils
 	url = https://github.com/marcweber/vim-addon-mw-utils
-[submodule "vim/.vim/bundle/vim-snipmate"]
-	path = vim/.vim/bundle/vim-snipmate
+[submodule ".vim/bundle/vim-snipmate"]
+	path = .vim/bundle/vim-snipmate
 	url = https://github.com/garbas/vim-snipmate
-[submodule "vim/.vim/bundle/vim-snippets"]
-	path = vim/.vim/bundle/vim-snippets
+[submodule ".vim/bundle/vim-snippets"]
+	path = .vim/bundle/vim-snippets
 	url = https://github.com/honza/vim-snippets
-[submodule "vim/.vim/bundle/vim-pathogen"]
-	path = vim/.vim/bundle/vim-pathogen
+[submodule ".vim/bundle/vim-pathogen"]
+	path = .vim/bundle/vim-pathogen
 	url = https://github.com/tpope/vim-pathogen
-[submodule "vim/.vim/bundle/vim-powerline"]
-	path = vim/.vim/bundle/vim-powerline
+[submodule ".vim/bundle/vim-powerline"]
+	path = .vim/bundle/vim-powerline
 	url = https://github.com/Lokaltog/vim-powerline
