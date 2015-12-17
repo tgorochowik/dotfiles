@@ -10,6 +10,9 @@ theme.bg_normal = "#3F3F3F"
 theme.bg_focus  = "#2A2A2A"
 theme.bg_urgent = "#3F3F3F"
 
+-- set wallpaper using symlink in $HOME
+theme.wallpaper = os.getenv("HOME") .. "/wallpaper"
+
 -- border
 theme.border_width  = "1"
 theme.border_normal = "#303030"
