@@ -50,7 +50,7 @@ end
 run_once("unclutter")
 
 -- beautiful init
-beautiful.init("~/.config/awesome/themes/mine/theme.lua")
+beautiful.init("~/.config/awesome/theme.lua")
 
 -- {{{ Variable definitions
 terminal = "urxvt"
