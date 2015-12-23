@@ -553,7 +553,7 @@ awful.rules.rules = {
       properties = { floating = true } },
     { rule = { class = "Frame" },
       properties = { floating = true } },
-    { rule = { class = "Chromium" },
+    { rule = { class = "chromium" },
       properties = { tag = tags[screen.count()][2] } },
 }
 -- }}}
