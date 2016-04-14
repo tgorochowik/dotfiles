@@ -87,6 +87,18 @@ autocmd ColorScheme * hi TabLineSel      ctermfg=15  ctermbg=235   cterm=none
 autocmd ColorScheme * hi Pmenu           ctermfg=15  ctermbg=238   cterm=none
 autocmd ColorScheme * hi PmenuSel        ctermfg=15  ctermbg=235   cterm=none
 
+" colorscheme: diff
+autocmd ColorScheme * hi DiffAdd                     ctermbg=17
+autocmd ColorScheme * hi diffAdded    ctermfg=150
+autocmd ColorScheme * hi diffRemoved  ctermfg=174
+autocmd ColorScheme * hi diffAdd      ctermfg=bg     ctermbg=61
+autocmd ColorScheme * hi diffDelete   ctermfg=bg     ctermbg=240 cterm=none
+autocmd ColorScheme * hi diffChange   ctermfg=bg     ctermbg=181
+autocmd ColorScheme * hi diffText     ctermfg=bg     ctermbg=174 cterm=none
+if &diff
+autocmd ColorScheme * hi CursorLine   ctermfg=bg     ctermbg=241 cterm=none
+endif
+
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
