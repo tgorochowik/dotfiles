@@ -37,6 +37,9 @@ alias grep='grep --color=always'
 # colorful ls
 alias ls='ls --color=auto'
 
+# colorful pacman
+alias pacman='sudo pacman --color=auto'
+
 # git bash completion
 source /usr/share/git/completion/git-completion.bash
 
