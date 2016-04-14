@@ -70,7 +70,7 @@ set statusline+=\ %3p%%\ \|\ %4l:%-3c
 
 let mapleader = ","
 
-"indents
+" indents
 vnoremap < <gv
 vnoremap > >gv
 
@@ -101,47 +101,21 @@ set viminfo ^=%
 
 set laststatus=2
 
-
-"sort
+" sort
 vnoremap <Leader>s :sort<CR>
 
-
 colorscheme molokai
-"spellchecking
+" spellchecking
 set spelllang=pl
 
-"rezize windows without ctrl
+" rezize windows without ctrl
 if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
 endif
 
-
 nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
 set showmode
 
-
-"let Tlist_Use_Right_Window = 1
-"filetype on
-"nnoremap <silent> <F3> :TlistToggle<CR>
 nmap <silent> <F2> :NERDTreeToggle<CR>
-
-
-"map <Leader>g :call RopeGotoDefinition()<CR>
-"let ropevim_enable_shortcuts = 1
-"let g:pymode_rope_goto_def_newwin = "vnew"
-"let g:pymode_rope_extended_complete = 1
-"let g:pymode_breakpoint = 0
-"let g:pymode_syntax = 1
-"let g:pymode_virtualenv = 1
-"
-"autocmd FileType python set omnifunc=pythoncomplete#Complete
-"autocmd FileType javascript set omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType css set omnifunc=csscomplete#CompleteCSS
-"autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
-"autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-"autocmd FileType c set omnifunc=ccomplete#Complete
-"
-"let g:SuperTabDefaultCompletionType = "context"
