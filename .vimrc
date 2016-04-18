@@ -11,7 +11,6 @@ Plugin 'tomtom/tlib_vim'
 Plugin 'vim-addon-mw-utils'
 Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
-Plugin 'Lokaltog/vim-powerline'
 call vundle#end()
 
 filetype plugin indent on
@@ -35,6 +34,39 @@ set bs=2
 set history=700
 set undolevels=700
 set cursorline
+
+" statusline colors
+" 1:red, 2:green, 3:yellow, 4:blue, 5:violet, 6:darkblue, 7:white, 8:gray
+autocmd ColorScheme * hi User1 ctermfg=1 ctermbg=236
+autocmd ColorScheme * hi User2 ctermfg=2 ctermbg=236
+autocmd ColorScheme * hi User3 ctermfg=3 ctermbg=236
+autocmd ColorScheme * hi User4 ctermfg=4 ctermbg=236
+autocmd ColorScheme * hi User5 ctermfg=5 ctermbg=236
+autocmd ColorScheme * hi User6 ctermfg=6 ctermbg=236
+autocmd ColorScheme * hi User7 ctermfg=7 ctermbg=236
+autocmd ColorScheme * hi User8 ctermfg=240 ctermbg=236
+
+set statusline=
+
+" status line flags (modified, readonly, help)
+set statusline+=%3*%m%1*%r%4*%h
+" filename
+set statusline+=%7*%f
+" full path
+set statusline+=%8*\ %F
+" align to right
+set statusline+=%=
+" spell check notifier
+set statusline+=%2*\ %{&spell!='spell'?&spelllang.'\ spellcheck\ ':''}
+" current register
+set statusline+=%7*\ %{v:register}
+" encoding
+set statusline+=\ \|\ %{&fileformat}
+set statusline+=\ \|\ %{&fileencoding}
+" file type
+set statusline+=\ \|\ %Y\ \|
+" cursor position
+set statusline+=\ %3p%%\ \|\ %4l:%-3c
 
 let mapleader = ","
 
