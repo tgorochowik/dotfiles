@@ -96,7 +96,7 @@ autocmd ColorScheme * hi diffDelete   ctermfg=bg     ctermbg=240 cterm=none
 autocmd ColorScheme * hi diffChange   ctermfg=bg     ctermbg=181
 autocmd ColorScheme * hi diffText     ctermfg=bg     ctermbg=174 cterm=none
 if &diff
-autocmd ColorScheme * hi CursorLine   ctermfg=bg     ctermbg=241 cterm=none
+autocmd ColorScheme * hi CursorLine   ctermfg=fg     ctermbg=241 cterm=none
 endif
 
 map <C-h> <C-W>h
