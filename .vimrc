@@ -37,7 +37,7 @@ set undolevels=700
 set cursorline
 set viminfo ^=%
 set laststatus=2
-set spelllang=pl
+set spelllang=en
 set showmode
 
 set statusline=
