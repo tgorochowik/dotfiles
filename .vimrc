@@ -16,24 +16,29 @@ call vundle#end()
 filetype plugin indent on
 syntax on
 
+" general options
+colorscheme tomokai
 set cindent
 set expandtab
-set ic
-set tw=79
+set ignorecase
+set textwidth=79
 set incsearch
-set nu
-set ruler
 set shiftwidth=2
 set tabstop=2
+set number
 set autoread
 set mouse=a
 set nobackup
 set nowritebackup
 set noswapfile
-set bs=2
+set backspace=2
 set history=700
 set undolevels=700
 set cursorline
+set viminfo ^=%
+set laststatus=2
+set spelllang=pl
+set showmode
 
 set statusline=
 " status line flags (modified, readonly, help)
@@ -56,36 +61,28 @@ set statusline+=\ \|\ %Y\ \|
 " cursor position
 set statusline+=\ %3p%%\ \|\ %4l:%-3c
 
-let mapleader = ","
-
-" indents
+" easier indentation
 vnoremap < <gv
 vnoremap > >gv
 
+" easier window navigation
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
 map <C-l> <C-W>l
 
-"return to last pos
+" return to last pos
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
      \   exe "normal! g`\"" |
      \ endif
-set viminfo ^=%
 
-set laststatus=2
+let mapleader = ","
 
 " sort
 vnoremap <Leader>s :sort<CR>
 
-" set colors
-colorscheme tomokai
-
-" spellchecking
-set spelllang=pl
-
-" rezize windows without ctrl
+" resize windows without ctrl
 if bufwinnr(1)
   map + <C-W>+
   map - <C-W>-
@@ -93,6 +90,5 @@ endif
 
 nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
-set showmode
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
