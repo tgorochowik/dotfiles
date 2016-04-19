@@ -44,6 +44,9 @@ set tabstop=2
 " but kernel-like eight spaces for c
 autocmd FileType c setlocal noexpandtab shiftwidth=8 tabstop=8
 
+" wrap git commit msg at 72
+autocmd FileType gitcommit setlocal tw=72 colorcolumn=73 spell
+
 set statusline=
 " status line flags (modified, readonly, help)
 set statusline+=%3*%m%1*%r%4*%h
