@@ -19,12 +19,9 @@ syntax on
 " general options
 colorscheme tomokai
 set cindent
-set expandtab
 set ignorecase
 set textwidth=79
 set incsearch
-set shiftwidth=2
-set tabstop=2
 set number
 set autoread
 set mouse=a
@@ -39,6 +36,13 @@ set viminfo ^=%
 set laststatus=2
 set spelllang=en
 set showmode
+
+" prefer two spaces indent for most files
+set expandtab
+set shiftwidth=2
+set tabstop=2
+" but kernel-like eight spaces for c
+autocmd FileType c setlocal noexpandtab shiftwidth=8 tabstop=8
 
 set statusline=
 " status line flags (modified, readonly, help)
