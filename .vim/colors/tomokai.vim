@@ -29,11 +29,6 @@ hi Debug           ctermfg=225             cterm=bold
 hi Define          ctermfg=81
 hi Delimiter       ctermfg=241
 
-hi DiffAdd                     ctermbg=24
-hi DiffChange      ctermfg=181 ctermbg=239
-hi DiffDelete      ctermfg=162 ctermbg=53
-hi DiffText                    ctermbg=102 cterm=bold
-
 hi Directory       ctermfg=118             cterm=bold
 hi Error           ctermfg=219 ctermbg=89
 hi ErrorMsg        ctermfg=199 ctermbg=16  cterm=bold
@@ -51,14 +46,14 @@ hi Label           ctermfg=229             cterm=none
 hi Macro           ctermfg=193
 hi SpecialKey      ctermfg=81
 
-hi MatchParen      ctermfg=16  ctermbg=208 erm=bold
+hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
 hi ModeMsg         ctermfg=229
 hi MoreMsg         ctermfg=229
 hi Operator        ctermfg=161
 
 " complete menu
-hi Pmenu           ctermfg=81  ctermbg=16
-hi PmenuSel                    ctermbg=244
+hi Pmenu           ctermfg=15  ctermbg=238 cterm=none
+hi PmenuSel        ctermfg=15  ctermbg=235 cterm=none
 hi PmenuSbar                   ctermbg=232
 hi PmenuThumb      ctermfg=81
 
@@ -100,3 +95,36 @@ hi CursorLine                  ctermbg=234 cterm=none
 hi CursorColumn                ctermbg=234
 hi LineNr          ctermfg=250 ctermbg=234
 hi NonText         ctermfg=250 ctermbg=234
+
+" tabs
+hi TabLineFill                 ctermfg=238
+hi TabLine         ctermfg=15  ctermbg=238 cterm=none
+hi TabLineSel      ctermfg=15  ctermbg=235 cterm=none
+
+" diff
+hi DiffAdd                     ctermbg=17
+hi DiffAdded    ctermfg=150
+hi DiffRemoved  ctermfg=174
+hi DiffAdd      ctermfg=233    ctermbg=61
+hi DiffDelete   ctermfg=233    ctermbg=240 cterm=none
+hi DiffChange   ctermfg=233    ctermbg=181
+hi DiffText     ctermfg=233    ctermbg=174 cterm=none
+if &diff
+hi CursorLine   ctermfg=252    ctermbg=236 cterm=none
+hi CursorColumn ctermfg=252    ctermbg=236 cterm=none
+endif
+
+" color extra whitespace characters
+autocmd InsertLeave * match ExtraWhite /\s\+$\|^	\+/
+autocmd InsertEnter * match ExtraWhite /\s\+$\|^	\+/
+hi ExtraWhite                 ctermbg=235
+
+" user colors (for statusline)
+hi User1        ctermfg=1     ctermbg=236
+hi User2        ctermfg=2     ctermbg=236
+hi User3        ctermfg=3     ctermbg=236
+hi User4        ctermfg=4     ctermbg=236
+hi User5        ctermfg=5     ctermbg=236
+hi User6        ctermfg=6     ctermbg=236
+hi User7        ctermfg=7     ctermbg=236
+hi User8        ctermfg=240   ctermbg=236

@@ -35,19 +35,7 @@ set history=700
 set undolevels=700
 set cursorline
 
-" statusline colors
-" 1:red, 2:green, 3:yellow, 4:blue, 5:violet, 6:darkblue, 7:white, 8:gray
-autocmd ColorScheme * hi User1 ctermfg=1 ctermbg=236
-autocmd ColorScheme * hi User2 ctermfg=2 ctermbg=236
-autocmd ColorScheme * hi User3 ctermfg=3 ctermbg=236
-autocmd ColorScheme * hi User4 ctermfg=4 ctermbg=236
-autocmd ColorScheme * hi User5 ctermfg=5 ctermbg=236
-autocmd ColorScheme * hi User6 ctermfg=6 ctermbg=236
-autocmd ColorScheme * hi User7 ctermfg=7 ctermbg=236
-autocmd ColorScheme * hi User8 ctermfg=240 ctermbg=236
-
 set statusline=
-
 " status line flags (modified, readonly, help)
 set statusline+=%3*%m%1*%r%4*%h
 " filename
@@ -74,31 +62,6 @@ let mapleader = ","
 vnoremap < <gv
 vnoremap > >gv
 
-" colorscheme: whitespace warning
-autocmd ColorScheme * highlight WhiteSpaceWarning ctermbg=235
-au InsertLeave * match WhiteSpaceWarning /\s\+$\|^	\+/
-
-" colorscheme: tabs
-autocmd ColorScheme * hi TabLineFill                 ctermfg=238
-autocmd ColorScheme * hi TabLine         ctermfg=15  ctermbg=238   cterm=none
-autocmd ColorScheme * hi TabLineSel      ctermfg=15  ctermbg=235   cterm=none
-
-" colorscheme: completion menu
-autocmd ColorScheme * hi Pmenu           ctermfg=15  ctermbg=238   cterm=none
-autocmd ColorScheme * hi PmenuSel        ctermfg=15  ctermbg=235   cterm=none
-
-" colorscheme: diff
-autocmd ColorScheme * hi DiffAdd                     ctermbg=17
-autocmd ColorScheme * hi diffAdded    ctermfg=150
-autocmd ColorScheme * hi diffRemoved  ctermfg=174
-autocmd ColorScheme * hi diffAdd      ctermfg=bg     ctermbg=61
-autocmd ColorScheme * hi diffDelete   ctermfg=bg     ctermbg=240 cterm=none
-autocmd ColorScheme * hi diffChange   ctermfg=bg     ctermbg=181
-autocmd ColorScheme * hi diffText     ctermfg=bg     ctermbg=174 cterm=none
-if &diff
-autocmd ColorScheme * hi CursorLine   ctermfg=fg     ctermbg=241 cterm=none
-endif
-
 map <C-h> <C-W>h
 map <C-j> <C-W>j
 map <C-k> <C-W>k
@@ -116,7 +79,9 @@ set laststatus=2
 " sort
 vnoremap <Leader>s :sort<CR>
 
-colorscheme molokai
+" set colors
+colorscheme tomokai
+
 " spellchecking
 set spelllang=pl
 
