@@ -53,7 +53,7 @@ set statusline+=%3*%m%1*%r%4*%h
 " filename
 set statusline+=%7*%f
 " full path
-set statusline+=%8*\ %F
+set statusline+=%8*\ %<%F
 " align to right
 set statusline+=%=
 " spell check notifier
