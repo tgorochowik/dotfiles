@@ -40,6 +40,9 @@ alias ls='ls --color=auto'
 # colorful pacman
 alias pacman='sudo pacman --color=auto'
 
+# prevent accidental reboots
+alias reboot='echo nope...'
+
 # git bash completion
 source /usr/share/git/completion/git-completion.bash
 
