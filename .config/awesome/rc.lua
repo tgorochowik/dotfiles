@@ -114,42 +114,46 @@ sep = wibox.widget.imagebox()
 sep:set_image(beautiful.separator)
 
 -- Create mail checker widget
-gmailw = wibox.widget.textbox()
-gmailw:set_text("0")
-mailicon = wibox.widget.imagebox()
-mailicon:set_image(beautiful.widget_mail)
+if io.popen("grep mail.google.com ~/.netrc"):read("*all") == '' then
+    gmaiw = nil
+else
+    gmailw = wibox.widget.textbox()
+    gmailw:set_text("0")
+    mailicon = wibox.widget.imagebox()
+    mailicon:set_image(beautiful.widget_mail)
 
-mail_update = function()
-    local c = os.getenv("HOME") .. "/.local/bin/gmailcheck"
-    local f = io.popen(c)
-    local d = f:read("*all")
+    mail_update = function()
+        local c = os.getenv("HOME") .. "/.local/bin/gmailcheck"
+        local f = io.popen(c)
+        local d = f:read("*all")
 
-    gmailw:set_text(d)
+        gmailw:set_text(d)
 
-    if tonumber(d) > 0 then
-        mailicon:set_image(beautiful.widget_mail_on)
-    else
-        mailicon:set_image(beautiful.widget_mail)
+        if tonumber(d) > 0 then
+            mailicon:set_image(beautiful.widget_mail_on)
+        else
+            mailicon:set_image(beautiful.widget_mail)
+        end
+
+        f:close()
     end
 
-    f:close()
-end
-
--- click to spawn mail in browser
-mailicon:buttons(awful.util.table.join(
-    awful.button({ }, 1, function()
-        awful.util.spawn("/usr/bin/chromium gmail.com")
-    end),
-    awful.button({ }, 3, function()
+    -- click to spawn mail in browser
+    mailicon:buttons(awful.util.table.join(
+        awful.button({ }, 1, function()
+            awful.util.spawn("/usr/bin/chromium gmail.com")
+        end),
+        awful.button({ }, 3, function()
+            mail_update()
+        end)
+    ))
+    local gtimer= timer({ timeout = 59 })
+    gtimer:connect_signal("timeout", function()
         mail_update()
     end)
-))
-local gtimer= timer({ timeout = 59 })
-gtimer:connect_signal("timeout", function()
-    mail_update()
-end)
 
-gtimer:start()
+    gtimer:start()
+end
 
 -- ALSA volume
 volicon = wibox.widget.imagebox(beautiful.widget_vol)
@@ -239,9 +243,11 @@ for s = 1, screen.count() do
     -- Widgets that are aligned to the right
     local right_layout = wibox.layout.fixed.horizontal()
     right_layout:add(sep)
-    right_layout:add(mailicon)
-    right_layout:add(gmailw)
-    right_layout:add(sep)
+    if gmailw ~= nil then
+        right_layout:add(mailicon)
+        right_layout:add(gmailw)
+        right_layout:add(sep)
+    end
     right_layout:add(volicon)
     right_layout:add(volumewidget)
     right_layout:add(sep)
