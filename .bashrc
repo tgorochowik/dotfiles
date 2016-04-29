@@ -43,6 +43,9 @@ alias pacman='sudo pacman --color=auto'
 # prevent accidental reboots
 alias reboot='echo nope...'
 
+# easier pwd copy
+alias pwdcp='pwd | xargs echo -n | xclip'
+
 # git bash completion
 source /usr/share/git/completion/git-completion.bash
 
