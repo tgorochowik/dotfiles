@@ -49,5 +49,10 @@ alias pwdcp='pwd | xargs echo -n | xclip'
 # git bash completion
 source /usr/share/git/completion/git-completion.bash
 
+# add local commands to PATH
+if [[ -e ~/.local/bin ]]; then
+  export PATH=$(readlink -f ~/.local/bin/):$PATH
+fi
+
 # prompt
 PS1="\[\e[0;32m\]\u@\h\[\e[0;36m\]\w$ \[\e[0m\]"
