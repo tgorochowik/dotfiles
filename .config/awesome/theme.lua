@@ -61,5 +61,6 @@ theme.widget_mail_on        = icons .. "mail_on.png"
 theme.awesome_icon           = nil
 theme.menu_submenu_icon      = nil
 theme.tasklist_floating_icon = nil
+theme.tasklist_disable_icon  = true
 
 return theme
