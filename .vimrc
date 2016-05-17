@@ -84,6 +84,9 @@ autocmd BufReadPost *
      \   exe "normal! g`\"" |
      \ endif
 
+" backup multi-tab session on exit
+autocmd VimLeave * :if tabpagenr("$") > 1 | mksession! /tmp/.vimsession | endif
+
 let mapleader = ","
 
 " sort
