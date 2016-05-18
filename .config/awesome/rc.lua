@@ -379,6 +379,7 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey,           }, "w",     function () awful.util.spawn("nautilus")    end),
     awful.key({ altkey,           }, "w",     function () awful.util.spawn(terminal.." -e vifm")  end),
+    awful.key({ modkey, "Shift"   }, "l",     function () awful.util.spawn("slock")     end),
     awful.key({ modkey,           }, "l",     function () awful.tag.incmwfact( 0.05)    end),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)    end),
     awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1)      end),
