@@ -42,7 +42,7 @@ set expandtab
 set shiftwidth=2
 set tabstop=2
 " but kernel-like eight spaces for c
-autocmd FileType c,dts setlocal noexpandtab shiftwidth=8 tabstop=8
+autocmd FileType c,cpp,dts setlocal noexpandtab shiftwidth=8 tabstop=8
 
 " wrap git commit msg at 72
 autocmd FileType gitcommit setlocal tw=72 colorcolumn=73 spell
