@@ -84,14 +84,16 @@ end
 ---- {{{ Tags
 tags = {
     main = {
-        names  = { "term", "www", "float", "rand", "remote" },
+        names  = { "this", "is", "the", "main", "display" },
         layout = { awful.layout.suit.tile, awful.layout.suit.tile.top,
                    awful.layout.suit.floating, awful.layout.suit.tile,
                    awful.layout.suit.tile }
     },
     extra = {
-        names  = { "monitor", "reader", "ssh",},
-        layout = { awful.layout.suit.tile, awful.layout.suit.tile, awful.layout.suit.tile }
+        names  = { "this", "is", "an", "extra", "display"},
+        layout = { awful.layout.suit.tile, awful.layout.suit.tile,
+                   awful.layout.suit.tile, awful.layout.suit.tile,
+                   awful.layout.suit.tile }
     }
 }
 tags[1] = awful.tag(tags.main.names, 1, tags.main.layout)
