@@ -1,0 +1,21 @@
+#!/bin/bash
+
+SESSION_NAME=vimvado
+
+# Accept only one argument (filename)
+# or 0 args to show tmux session
+if [[ $# == 0 ]]; then
+  tmux attach-session -t ${SESSION_NAME}
+  exit 0
+elif [[ $# != 1 ]]; then
+  echo Usage: `basename $0` filename
+  exit 1
+fi
+
+# Create session if it doesn't exist
+if [[ ! `tmux ls | grep ${SESSION_NAME}` ]]; then
+  tmux new-session -d -s ${SESSION_NAME}
+fi
+
+# Run vim in a new tmux window
+tmux new-window -t ${SESSION_NAME}: -n "`basename $1`" "vim '$1'";
