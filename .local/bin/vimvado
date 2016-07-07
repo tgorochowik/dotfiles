@@ -7,8 +7,8 @@ SESSION_NAME=vimvado
 if [[ $# == 0 ]]; then
   tmux attach-session -t ${SESSION_NAME}
   exit 0
-elif [[ $# != 1 ]]; then
-  echo Usage: `basename $0` filename
+elif [[ $# > 2 ]]; then
+  echo Usage: `basename $0` filename [line_number]
   exit 1
 fi
 
@@ -18,4 +18,4 @@ if [[ ! `tmux ls | grep ${SESSION_NAME}` ]]; then
 fi
 
 # Run vim in a new tmux window
-tmux new-window -t ${SESSION_NAME}: -n "`basename $1`" "vim '$1'";
+tmux new-window -t ${SESSION_NAME}: -n "`basename $1`" "vim '$1' +0'$2'";
