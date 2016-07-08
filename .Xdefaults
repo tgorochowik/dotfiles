@@ -36,9 +36,3 @@ urxvt*scrollBar: false
 urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
-
-#clickable links:
-!URxvt.perl-ext-common: default,matcher
-!URxvt.urlLauncher: chromium
-!URxvt.matcher.button: 1
-!URxvt.matcher.pattern.1: \\bwww\\.[\\w-]\\.[\\w./?&@#-]*[\\w/-]
