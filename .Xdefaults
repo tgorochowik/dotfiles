@@ -28,7 +28,7 @@
 *color15:   #f8f8f2
 
 urxvt*transparent: false
-urxvt*font: xft:Terminus:style=Medium:pixelsize=11:antialias=true:hinting=true
+urxvt*font: xft:inconsolata:pixelsize=12:antialias=true:hinting=true
 
 urxvt*scrollBar: false
 
