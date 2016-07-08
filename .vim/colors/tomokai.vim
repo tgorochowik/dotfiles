@@ -44,7 +44,7 @@ hi IncSearch       ctermfg=193 ctermbg=16
 hi Keyword         ctermfg=161             cterm=bold
 hi Label           ctermfg=229             cterm=none
 hi Macro           ctermfg=193
-hi SpecialKey      ctermfg=81
+hi SpecialKey      ctermfg=0   ctermbg=235
 
 hi MatchParen      ctermfg=16  ctermbg=208 cterm=bold
 hi ModeMsg         ctermfg=229
@@ -68,7 +68,6 @@ hi SignColumn      ctermfg=118 ctermbg=235
 hi SpecialChar     ctermfg=161             cterm=bold
 hi SpecialComment  ctermfg=245             cterm=bold
 hi Special         ctermfg=81  ctermbg=232
-hi SpecialKey      ctermfg=245
 
 hi Statement       ctermfg=161             cterm=bold
 hi StatusLine      ctermfg=238 ctermbg=253
@@ -109,15 +108,6 @@ hi DiffAdd      ctermfg=233    ctermbg=61
 hi DiffDelete   ctermfg=233    ctermbg=240 cterm=none
 hi DiffChange   ctermfg=233    ctermbg=181
 hi DiffText     ctermfg=233    ctermbg=174 cterm=none
-if &diff
-hi CursorLine   ctermfg=252    ctermbg=236 cterm=none
-hi CursorColumn ctermfg=252    ctermbg=236 cterm=none
-endif
-
-" color extra whitespace characters
-autocmd InsertLeave * match ExtraWhite /\s\+$\|^	\+/
-autocmd InsertEnter * match ExtraWhite /\s\+$\|^	\+/
-hi ExtraWhite                 ctermbg=235
 
 " user colors (for statusline)
 hi User1        ctermfg=1     ctermbg=236

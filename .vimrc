@@ -47,6 +47,10 @@ autocmd FileType c,cpp,dts setlocal noexpandtab shiftwidth=8 tabstop=8
 " wrap git commit msg at 72
 autocmd FileType gitcommit setlocal tw=72 colorcolumn=73 spell
 
+" list config
+set list
+set listchars=tab:\ \ ,trail:\ ,
+
 set statusline=
 " status line flags (modified, readonly, help)
 set statusline+=%3*%m%1*%r%4*%h
