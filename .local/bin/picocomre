@@ -25,12 +25,16 @@ device=$(echo $devices/$tty)
 port=${device/$tty}
 
 while [[ 1 ]]; do
-  # wait for the device node
-  msg="x Waiting for $tty x"
-  echo ${msg//[ a-Z0-9]/x}
-  echo $msg
-  echo ${msg//[ a-Z0-9]/x}
+  # show waiting msg if no device
+  if [ ! -e $device ]; then
+    msg="- Waiting for $tty -"
+    echo
+    echo ${msg//[ a-Z0-9]/-}
+    echo $msg
+    echo ${msg//[ a-Z0-9]/-}
+  fi
 
+  # wait until any device appears in port
   while [ ! -e $port/tty* ]; do
     sleep 1
   done;
