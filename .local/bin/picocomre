@@ -8,22 +8,43 @@ while [[ $1 && $1 != "/dev/"* ]]; do
   shift;
 done;
 
+if [[ -z $1 ]]; then
+  echo "No device specified"
+  exit 1
+fi
+
+devices="/sys/bus/usb/drivers/*/[0-9]*/"
+tty=${1#/dev/}
+
+if [ ! -d $devices/$tty ]; then
+  echo "Device $tty does not exist"
+  exit 1
+fi
+
+device=$(echo $devices/$tty)
+port=${device/$tty}
+
 while [[ 1 ]]; do
   # wait for the device node
-  echo
-  printf "x%.0s" {1..24}
-  echo
-  printf "Waiting for %s\n" $1
-  printf "x%.0s" {1..24}
-  echo; echo
-  while [[ ! -e "$1" ]]; do
+  msg="x Waiting for $tty x"
+  echo ${msg//[ a-Z0-9]/x}
+  echo $msg
+  echo ${msg//[ a-Z0-9]/x}
+
+  while [ ! -e $port/tty* ]; do
     sleep 1
   done;
 
+  # check if minor number changed
+  device=$(echo $port/tty*)
+  ntty=${device#$port/}
+  opts=${opts/$tty/$ntty}
+  tty=$ntty
+
   # quit if busy
-  if [[ $(lsof $1) ]]; then
-    echo "$1 busy!"; echo
-    lsof $1
+  if [[ $(lsof /dev/$tty) ]]; then
+    echo "$tty busy!"; echo
+    lsof /dev/$tty
     exit 1
   fi
 
