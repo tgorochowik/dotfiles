@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#author: tgorochowik@gmail.com
+
 SESSION_NAME=vimvado
 
 # Accept only one argument (filename)

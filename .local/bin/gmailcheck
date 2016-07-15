@@ -1,6 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+#author: tgorochowik@gmail.com
+
 from pycurl import Curl
 from io import BytesIO
 from re import search

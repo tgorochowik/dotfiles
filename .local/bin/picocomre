@@ -1,5 +1,7 @@
 #!/bin/bash
 
+#author: tgorochowik@gmail.com
+
 # save opts
 opts=$@
 
