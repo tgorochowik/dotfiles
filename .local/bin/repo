@@ -1,0 +1,20 @@
+#!/bin/bash
+
+#author: tgorochowik@gmail.com
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+repo_url=https://storage.googleapis.com/git-repo-downloads/repo
+repo_dir=$SCRIPT_DIR/extern
+repo_fname=repo
+repo=$repo_dir/$repo_fname
+
+[[ -e $repo_dir ]] || mkdir -p $repo_dir
+
+if  [[ ! -e $repo ]]; then
+  echo info: repo not available - downloading...
+  curl -s $repo_url > $repo
+  chmod a+x $repo
+fi
+
+eval $repo $@
