@@ -1,0 +1,28 @@
+#!/bin/bash
+
+#author: tgorochowik@gmail.com
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+usage() {
+  echo "Usage: $(basename $0) <version>"
+  echo "Set local Python version to <version>."
+}
+
+if [[ ! $1 ]]; then
+  usage
+  exit 0
+fi
+
+if [[ ! -f /bin/python$1 ]]; then
+  echo Python $1 not available!
+  exit 0
+fi
+
+if [[ -f $SCRIPT_DIR/python ]]; then
+  rm $SCRIPT_DIR/python
+fi
+
+ln -s /bin/python$1 $SCRIPT_DIR/python
+echo Setting default to:
+python --version
