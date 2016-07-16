@@ -6,10 +6,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
-" tlib and mw-utils are snippets dependencies
-Plugin 'tomtom/tlib_vim'
-Plugin 'vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
+Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 call vundle#end()
 
