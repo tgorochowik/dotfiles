@@ -93,6 +93,9 @@ let mapleader = ","
 " sort
 vnoremap <Leader>s :sort<CR>
 
+" snippets config
+let g:UltiSnipsEditSplit = "vertical"
+
 " resize windows without ctrl
 if bufwinnr(1)
   map + <C-W>+
