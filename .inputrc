@@ -5,3 +5,6 @@ set completion-ignore-case on
 
 # add trailing slash to symlink dirs
 set mark-symlinked-directories on
+
+# show completion suggestions immediately (single tab press)
+set show-all-if-ambiguous on
