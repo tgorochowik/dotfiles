@@ -4,20 +4,29 @@
 
 SESSION_NAME=vimvado
 
-# Accept only one argument (filename)
-# or 0 args to show tmux session
+# check args
 if [[ $# == 0 ]]; then
   tmux attach-session -t ${SESSION_NAME}
   exit 0
 elif [[ $# > 2 ]]; then
-  echo Usage: `basename $0` filename [line_number]
+  echo Usage: `basename $0` [filename [line_number]]
   exit 1
 fi
 
-# Create session if it doesn't exist
+# create session if it doesn't exist
 if [[ ! `tmux ls | grep ${SESSION_NAME}` ]]; then
-  tmux new-session -d -s ${SESSION_NAME}
+  tmux new-session -d -s ${SESSION_NAME} "vim --servername ${SESSION_NAME}"
+
+  # wait for vim server to appear
+  while [[ ! `vim --serverlist | grep -i ${SESSION_NAME}` ]]; do
+    sleep 0.1
+  done
 fi
 
-# Run vim in a new tmux window
-tmux new-window -t ${SESSION_NAME}: -n "`basename $1`" "vim '$1' +0'$2'";
+# run vim in a new vim tab in vimvado tmux session
+vim --servername ${SESSION_NAME} --remote-tab ${1}
+
+# move cursor to the requested line
+if [[ $2 ]]; then
+  vim --servername ${SESSION_NAME} --remote-send ${2}G
+fi
