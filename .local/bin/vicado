@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# author: tgorochowik@gmail.com
+
+# check if vivado command is available
+if ! [[ -e $(command -v vivado) ]]; then
+  echo "Setup vivado environment first."
+  exit 1
+fi
+
+# do not create log file if not explicitly chosen
+if ! [[ $@ =~ .*-log.* ]]; then
+  VFLAGS="-nolog"
+fi
+
+# do not create journal file if not explicitly chosen
+if ! [[ $@ =~ .*-journal.* ]]; then
+  VFLAGS="-nojournal ${VFLAGS}"
+fi
+
+# prepare sed script to make output colorful
+SEDSCRIPT=$(cat <<-'sedscript'
+  s/^INFO:/\x1b[34m\0\x1b[0m/g;
+  s/^WARNING:/\x1b[35m\0\x1b[0m/g;
+  s/^CRITICAL WARNING:/\x1b[33m\0\x1b[0m/g;
+  s/^ERROR:/\x1b[31m\0\x1b[0m/g;
+  s/\[[a-Z]\+ [0-9]\+-[0-9]\+]/\x1b[36m\0\x1b[0m/g
+sedscript
+)
+
+# finaly execute it, use colors only in batch mode
+if [[ $@ =~ .*-mode\ batch.* ]]; then
+  vivado ${VFLAGS} $@ 2>&1 | sed -e "${SEDSCRIPT}"
+else
+  vivado ${VFLAGS} $@
+fi
