@@ -40,7 +40,6 @@ hi Folded          ctermfg=67  ctermbg=16
 hi Function        ctermfg=118
 hi Identifier      ctermfg=208
 hi Ignore          ctermfg=244 ctermbg=232
-hi IncSearch       ctermfg=193 ctermbg=16
 
 hi Keyword         ctermfg=161             cterm=bold
 hi Label           ctermfg=229             cterm=none
@@ -62,7 +61,8 @@ hi PreCondit       ctermfg=118             cterm=bold
 hi PreProc         ctermfg=118
 hi Question        ctermfg=81
 hi Repeat          ctermfg=161             cterm=bold
-hi Search          ctermfg=253 ctermbg=66
+hi Search          ctermfg=16  ctermbg=144
+hi IncSearch       ctermfg=144 ctermbg=16
 
 " marks column
 hi SignColumn      ctermfg=118 ctermbg=235
