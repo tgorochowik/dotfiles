@@ -36,3 +36,5 @@ urxvt*scrollBar: false
 urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
+
+urxvt.perl-ext-common: -popupselection,-optionpopup
