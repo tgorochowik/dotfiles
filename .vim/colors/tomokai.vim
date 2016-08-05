@@ -32,6 +32,7 @@ hi Delimiter       ctermfg=241
 hi Directory       ctermfg=118             cterm=bold
 hi Error           ctermfg=219 ctermbg=89
 hi ErrorMsg        ctermfg=199 ctermbg=16  cterm=bold
+hi WarningMsg      ctermfg=144 ctermbg=16  cterm=bold
 hi Exception       ctermfg=118             cterm=bold
 hi Float           ctermfg=135
 hi FoldColumn      ctermfg=67  ctermbg=16
@@ -85,7 +86,6 @@ hi Underlined      ctermfg=244             cterm=underline
 hi VertSplit       ctermfg=244 ctermbg=232 cterm=bold
 hi VisualNOS                   ctermbg=238
 hi Visual                      ctermbg=235
-hi WarningMsg      ctermfg=231 ctermbg=238 cterm=bold
 hi WildMenu        ctermfg=81  ctermbg=16
 
 hi Normal          ctermfg=252 ctermbg=233
