@@ -37,7 +37,7 @@ urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
 
-urxvt.perl-ext-common: -popupselection,-optionpopup
+urxvt.perl-ext-common: -popupselection,-optionpopup,curplosion/curplosion
 
 #disable unicode characters input
 urxvt.iso14755: false
