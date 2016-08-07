@@ -8,6 +8,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'mglb/vim-indenty'
 call vundle#end()
 
 filetype plugin indent on
@@ -72,6 +73,10 @@ set statusline+=\ %3p%%\ \|\ %4l:%-3c
 " easier indentation
 vnoremap < <gv
 vnoremap > >gv
+
+" indenty plugin settings
+let g:indenty_msg_hl = ""
+let g:indenty_detailed_msg = 1
 
 " easier window navigation
 map <C-h> <C-W>h
