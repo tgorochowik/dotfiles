@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/Vundle.vim"]
 	path = .vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
+[submodule ".urxvt/ext/curplosion"]
+	path = .urxvt/ext/curplosion
+	url = https://github.com/tgorochowik/urxvt-curplosion
