@@ -38,3 +38,6 @@ urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
 
 urxvt.perl-ext-common: -popupselection,-optionpopup
+
+#disable unicode characters input
+urxvt.iso14755: false
