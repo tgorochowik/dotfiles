@@ -54,5 +54,17 @@ if [[ -e ~/.local/bin ]]; then
   export PATH=$(readlink -f ~/.local/bin/):$PATH
 fi
 
+# better cd (if arg is file, go to its dir)
+function cd() {
+  args=$@
+  while (( $# )); do
+    if [[ -f "$1" ]]; then
+      args=${args/$1/$(dirname "$1")}
+    fi
+    shift
+  done
+  command cd $args
+}
+
 # prompt
 PS1="\[\e[0;32m\]\u@\h\[\e[0;36m\]:\w$ \[\e[0m\]"
