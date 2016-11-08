@@ -9,6 +9,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mglb/vim-indenty'
+Plugin 'godlygeek/tabular'
 call vundle#end()
 
 filetype plugin indent on
