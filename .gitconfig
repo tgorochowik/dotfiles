@@ -1,0 +1,13 @@
+[color]
+	ui = auto
+[diff]
+	tool = vimdiff
+[merge]
+	tool = vimdiff
+[difftool]
+	prompt = false
+[alias]
+	root = rev-parse --show-toplevel
+	statusvi = !vim \"+r! git status -s\" \"+set nomodified\"
+[include]
+	path = .gitconfig-local
