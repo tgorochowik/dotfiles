@@ -75,6 +75,9 @@ set statusline+=\ %3p%%\ \|\ %4l:%-3c
 vnoremap < <gv
 vnoremap > >gv
 
+" break indent
+set breakindent
+
 " indenty plugin settings
 let g:indenty_msg_hl = ""
 let g:indenty_detailed_msg = 1
