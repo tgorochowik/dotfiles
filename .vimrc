@@ -1,19 +1,13 @@
 runtime! archlinux.vim
-filetype off
 
-" manage plugins using Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'VundleVim/Vundle.vim'
-Plugin 'scrooloose/nerdtree'
-Plugin 'sirver/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'mglb/vim-indenty'
-Plugin 'godlygeek/tabular'
-call vundle#end()
+" load plugins
+runtime! plugins.vim
 
-filetype plugin indent on
-syntax on
+" load status line
+runtime! statusline.vim
+
+" load additional key mappings
+runtime! keys.vim
 
 " general options
 colorscheme tomokai
@@ -40,6 +34,7 @@ set showmode
 set expandtab
 set shiftwidth=2
 set tabstop=2
+
 " but kernel-like eight spaces for c
 autocmd FileType c,cpp,dts setlocal noexpandtab shiftwidth=8 tabstop=8
 
@@ -50,43 +45,8 @@ autocmd FileType gitcommit setlocal tw=72 colorcolumn=73 spell
 set list
 set listchars=tab:\ \ ,trail:\ ,
 
-set statusline=
-" status line flags (modified, readonly, help)
-set statusline+=%3*%m%1*%r%4*%h
-" filename
-set statusline+=%7*%f
-" full path
-set statusline+=%8*\ %<%F
-" align to right
-set statusline+=%=
-" spell check notifier
-set statusline+=%2*\ %{&spell!='spell'?&spelllang.'\ spellcheck\ ':''}
-" current register
-set statusline+=%7*\ %{v:register}
-" encoding
-set statusline+=\ \|\ %{&fileformat}
-set statusline+=\ \|\ %{&fileencoding}
-" file type
-set statusline+=\ \|\ %Y\ \|
-" cursor position
-set statusline+=\ %3p%%\ \|\ %4l:%-3c
-
-" easier indentation
-vnoremap < <gv
-vnoremap > >gv
-
 " break indent
 set breakindent
-
-" indenty plugin settings
-let g:indenty_msg_hl = ""
-let g:indenty_detailed_msg = 1
-
-" easier window navigation
-map <C-h> <C-W>h
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-l> <C-W>l
 
 " return to last pos
 autocmd BufReadPost *
@@ -96,22 +56,3 @@ autocmd BufReadPost *
 
 " backup multi-tab session on exit
 autocmd VimLeave * :if tabpagenr("$") > 1 | mksession! /tmp/.vimsession | endif
-
-let mapleader = ","
-
-" sort
-vnoremap <Leader>s :sort<CR>
-
-" snippets config
-let g:UltiSnipsEditSplit = "vertical"
-
-" resize windows without ctrl
-if bufwinnr(1)
-  map + <C-W>+
-  map - <C-W>-
-endif
-
-nnoremap <F6> :set invpaste paste?<CR>
-set pastetoggle=<F6>
-
-nmap <silent> <F2> :NERDTreeToggle<CR>
