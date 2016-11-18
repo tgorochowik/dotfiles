@@ -61,14 +61,43 @@ function groot() {
 
 # better cd (if arg is file, go to its dir)
 function cd() {
-  args=$@
+  local args=$@
+
+  # don't do anything if just going back
+  [[ $@ == "-" ]] && command cd $@ && return 0
+
   while (( $# )); do
-    if [[ -f "$1" ]]; then
-      args=${args/$1/$(dirname "$1")}
+    # in cd if there is a dash switch it has to come first,
+    # we have to skip them all
+    if [[ $1 == "-"* ]]; then
+      shift
+      continue
     fi
-    shift
+
+    # check the rest parameters if they form a file
+    if [[ -f "$@" ]]; then
+      args=${args/$@/$(dirname "$@")}
+
+      # show what is going to happen
+      echo "cd $args"
+    fi
+    break
   done
-  command cd $args
+
+  # check if calculated directory exists
+  [[ -e "$args" ]] && command cd "$args" && return 0
+
+  # try to find
+  IFS='  ' read -r -a parts <<< "$args"
+  local n
+  for n in $(seq 0  ${#parts[@]}); do
+    cdir=${parts[@]:0:$n}
+    [[ -e "$cdir" ]] && cd "$cdir" && return 0
+  done
+
+  # fail
+  echo "bash: cd: $args: No such file or directory"
+  return 1
 }
 
 # prompt
