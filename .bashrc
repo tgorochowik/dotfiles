@@ -54,6 +54,11 @@ if [[ -e ~/.local/bin ]]; then
   export PATH=$(readlink -f ~/.local/bin/):$PATH
 fi
 
+# cd git root
+function groot() {
+  groot_dir=$(git rev-parse --show-toplevel) && cd $groot_dir
+}
+
 # better cd (if arg is file, go to its dir)
 function cd() {
   args=$@
