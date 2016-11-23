@@ -63,6 +63,11 @@ function groot() {
 function cd() {
   local args=$@
 
+  # just go home if no args
+  if ! [[ $1 ]]; then
+    command cd && return 0
+  fi
+
   # don't do anything if just going back
   [[ $@ == "-" ]] && command cd $@ && return 0
 
