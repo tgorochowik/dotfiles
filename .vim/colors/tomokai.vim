@@ -112,6 +112,7 @@ hi DiffChange   ctermfg=233    ctermbg=181
 hi DiffText     ctermfg=233    ctermbg=174 cterm=none
 
 hi SpellBad     ctermfg=0      ctermbg=9
+hi SpellCap     ctermfg=0      ctermbg=8
 
 " user colors (for statusline)
 hi User1        ctermfg=1     ctermbg=236
