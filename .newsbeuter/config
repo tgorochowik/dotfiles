@@ -1,0 +1,34 @@
+# misc
+auto-reload         yes
+reload-time         10
+show-read-articles  yes
+cleanup-on-quit     no
+show-keymap-hint    no
+
+# formats
+datetime-format           "%H:%M %d/%m/%y"
+
+feedlist-title-format     "> Select Feed"
+feedlist-format           " * %-50t (%U New)"
+
+articlelist-title-format  "> %T"
+articlelist-format        " %D %-20a %t"
+
+itemview-title-format     "> %T"
+
+# keys
+bind-key   j    down
+bind-key   k    up
+bind-key   l    open
+bind-key   h    quit
+bind-key   ESC  quit
+bind-key   m    toggle-show-read-feeds
+
+# colors
+color info               color2   color0
+color listnormal         color8   default
+color listnormal_unread  default  default
+color listfocus          color0   color8
+color listfocus_unread   color0   color6
+
+highlight article "^(Feed|Title|Author|Link|Date):" color6 default
