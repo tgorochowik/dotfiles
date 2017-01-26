@@ -48,6 +48,8 @@ set listchars=tab:\ \ ,trail:\ ,
 " break indent
 set breakindent
 
+set tags=tags;
+
 " return to last pos
 autocmd BufReadPost *
      \ if line("'\"") > 0 && line("'\"") <= line("$") |
