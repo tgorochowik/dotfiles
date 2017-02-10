@@ -8,6 +8,10 @@ local naughty = require("naughty")
 
 local hotkeys_popup = require("awful.hotkeys_popup").widget
 
+-- slightly modified lain plugins
+local alsa      = require("alsa")
+local calendar  = require("calendar")
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -67,7 +71,32 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock()
+mytextclock = awful.widget.textclock(" %a %b %d, %H:%M:%S ", 1)
+
+-- Attach calendar to the textclock widget
+calendar:attach(mytextclock, { font_size = 8 })
+
+-- Create separator widget
+sep = wibox.widget.imagebox()
+sep:set_image(beautiful.separator)
+
+-- ALSA volume widget
+volicon = wibox.widget.imagebox(beautiful.widget_vol)
+volumewidget = alsa({
+    settings = function()
+        if volume_now.status == "off" then
+            volicon:set_image(beautiful.widget_vol_mute)
+        elseif tonumber(volume_now.level) == 0 then
+            volicon:set_image(beautiful.widget_vol_no)
+        elseif tonumber(volume_now.level) <= 50 then
+            volicon:set_image(beautiful.widget_vol_low)
+        else
+            volicon:set_image(beautiful.widget_vol)
+        end
+
+        widget:set_text(" " .. volume_now.level .. "% ")
+    end
+})
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = awful.util.table.join(
@@ -143,13 +172,19 @@ awful.screen.connect_for_each_screen(function(s)
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
             s.mytaglist,
+            sep,
             s.mypromptbox,
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
+            sep,
+            volicon,
+            volumewidget,
+            sep,
             mytextclock,
+            sep,
             s.mylayoutbox,
         },
     }
