@@ -45,6 +45,7 @@ beautiful.init("~/.config/awesome/theme.lua")
 terminal = "urxvt"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
+browser = "chromium"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -52,6 +53,7 @@ editor_cmd = terminal .. " -e " .. editor
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
 modkey = "Mod4"
+altkey = "Mod1"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
@@ -280,7 +282,75 @@ globalkeys = awful.util.table.join(
                     history_path = awful.util.get_cache_dir() .. "/history_eval"
                   }
               end,
-              {description = "lua execute prompt", group = "awesome"})
+              {description = "lua execute prompt", group = "awesome"}),
+
+    -- ALSA volume control
+    awful.key({ altkey }, "Up",
+        function ()
+            awful.util.spawn("amixer -q set Master 1%+")
+            volumewidget.update()
+        end),
+    awful.key({ altkey }, "Down",
+        function ()
+            awful.util.spawn("amixer -q set Master 1%-")
+            volumewidget.update()
+        end),
+    awful.key({ altkey }, "m",
+        function ()
+            awful.util.spawn("amixer -q set Master playback toggle")
+            volumewidget.update()
+        end),
+
+    -- Multimedia/function keys
+    awful.key({}, "XF86AudioRaiseVolume",
+        function()
+            awful.util.spawn("amixer -q set Master 1%+")
+            volumewidget.update()
+        end ),
+    awful.key({}, "XF86AudioLowerVolume",
+        function()
+            awful.util.spawn("amixer -q set Master 1%-")
+            volumewidget.update()
+        end ),
+    awful.key({}, "XF86AudioMute",
+        function()
+            awful.util.spawn("amixer -q set Master playback toggle")
+            volumewidget.update()
+        end ),
+    awful.key({ modkey }, "Print",
+        function()
+            awful.util.spawn_with_shell('scrot ~/shots/'..os.date("%Y-%m-%d-%H%M%S")..'.png')
+        end ),
+    awful.key({}, "Print",
+        function()
+            awful.util.spawn_with_shell('import ~/shots/'..os.date("%Y-%m-%d-%H%M%S")..'.png')
+        end ),
+    awful.key({}, "XF86HomePage",
+        function()
+            awful.util.spawn(browser)
+        end ),
+    awful.key({}, "XF86Mail",
+        function()
+            awful.util.spawn(browser .. " gmail.com")
+        end ),
+    awful.key({}, "XF86Calculator",
+        function()
+            awful.util.spawn(terminal.." -e python")
+        end ),
+    awful.key({}, "XF86ScreenSaver",
+        function()
+            awful.util.spawn_with_shell("slock")
+        end ),
+
+    -- Extra random bindings
+    awful.key({ altkey, }, "l",
+        function ()
+            awful.util.spawn_with_shell("slock")
+        end),
+    awful.key({ altkey, }, "c",
+        function ()
+            calendar:show(4)
+        end)
 )
 
 clientkeys = awful.util.table.join(
