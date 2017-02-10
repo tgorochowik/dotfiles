@@ -29,7 +29,7 @@ hi Debug           ctermfg=225             cterm=bold
 hi Define          ctermfg=81
 hi Delimiter       ctermfg=241
 
-hi Directory       ctermfg=118             cterm=bold
+hi Directory       ctermfg=100             cterm=none
 hi Error           ctermfg=219 ctermbg=89
 hi ErrorMsg        ctermfg=199 ctermbg=16  cterm=bold
 hi WarningMsg      ctermfg=144 ctermbg=16  cterm=bold
@@ -57,7 +57,7 @@ hi PmenuSel        ctermfg=15  ctermbg=235 cterm=none
 hi PmenuSbar                   ctermbg=232
 hi PmenuThumb      ctermfg=81
 
-hi PreCondit       ctermfg=118             cterm=bold
+hi PreCondit       ctermfg=118             cterm=none
 hi PreProc         ctermfg=118
 hi Question        ctermfg=81
 hi Repeat          ctermfg=161             cterm=bold
@@ -76,7 +76,7 @@ hi StatusLineNC    ctermfg=244 ctermbg=232
 hi StorageClass    ctermfg=208
 hi Structure       ctermfg=81
 hi Tag             ctermfg=161
-hi Title           ctermfg=166
+hi Title           ctermfg=236
 hi Todo            ctermfg=231 ctermbg=232 cterm=bold
 
 hi Typedef         ctermfg=81
