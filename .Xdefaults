@@ -28,7 +28,7 @@
 *color15:   #f8f8f2
 
 urxvt*transparent: false
-urxvt*font: xft:Terminus:style=Medium:pixelsize=11:antialias=true:hinting=true
+urxvt*font: xft:DejaVuSansMono:pixelsize=11
 
 urxvt*scrollBar: false
 
@@ -37,7 +37,7 @@ urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
 
-urxvt.perl-ext-common: -popupselection,-optionpopup,curplosion/curplosion
+urxvt.perl-ext-common: -popupselection,-optionpopup,font-size/font-size,curplosion/curplosion
 
 #curplosion settings
 urxvt.curplosion.colors: 4, 5, 4

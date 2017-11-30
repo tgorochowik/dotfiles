@@ -4,3 +4,6 @@
 [submodule ".urxvt/ext/curplosion"]
 	path = .urxvt/ext/curplosion
 	url = https://github.com/tgorochowik/urxvt-curplosion
+[submodule ".urxvt/ext/font-size"]
+	path = .urxvt/ext/font-size
+	url = https://github.com/tgorochowik/urxvt-font-size.git
