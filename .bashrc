@@ -120,4 +120,14 @@ function screencap() {
 }
 
 # prompt
-PS1="\[\e[0;32m\]\u@\h\[\e[0;36m\]:\w$ \[\e[0m\]"
+PROMPT_COMMAND=__prompt_command
+
+__prompt_command() {
+    local rc="$?"
+    local mc=""
+
+    if [ "$rc" != 0 ]; then
+      mc="\[\e[8;31m\]"
+    fi
+    PS1="\[\e[0;32m\]\u@\[\e[0;32m\]\h\[\e[0;36m\]:\w$mc$ \[\e[0m\]"
+}
