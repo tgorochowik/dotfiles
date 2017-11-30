@@ -76,7 +76,7 @@ hi StatusLineNC    ctermfg=244 ctermbg=232
 hi StorageClass    ctermfg=208
 hi Structure       ctermfg=81
 hi Tag             ctermfg=161
-hi Title           ctermfg=236
+hi Title           ctermfg=242
 hi Todo            ctermfg=231 ctermbg=232 cterm=bold
 
 hi Typedef         ctermfg=81
@@ -111,8 +111,8 @@ hi DiffDelete   ctermfg=233    ctermbg=240 cterm=none
 hi DiffChange   ctermfg=233    ctermbg=181
 hi DiffText     ctermfg=233    ctermbg=174 cterm=none
 
-hi SpellBad     ctermfg=0      ctermbg=9
-hi SpellCap     ctermfg=0      ctermbg=8
+hi SpellBad     ctermfg=3      ctermbg=0   cterm=underline
+hi SpellCap     ctermfg=4      ctermbg=0   cterm=underline
 
 " user colors (for statusline)
 hi User1        ctermfg=1     ctermbg=236
