@@ -119,6 +119,8 @@ function screencap() {
   adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > $1
 }
 
+HISTCONTROL=ignoreboth
+
 # prompt
 PROMPT_COMMAND=__prompt_command
 
