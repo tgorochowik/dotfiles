@@ -119,6 +119,14 @@ function screencap() {
   adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > $1
 }
 
+function python() {
+  if type bpython > /dev/null 2>&1 && [[ -z "$@" ]]; then
+    bpython
+  else
+    command python $@
+  fi
+}
+
 HISTCONTROL=ignoreboth
 
 # prompt
