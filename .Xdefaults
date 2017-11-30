@@ -32,6 +32,9 @@ urxvt*font: xft:DejaVuSansMono:pixelsize=11
 
 urxvt*scrollBar: false
 
+urxvt*internalBorder: 0
+urxvt*externalBorder: 0
+
 #no auto scroll when not wanted
 urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
