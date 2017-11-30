@@ -110,5 +110,14 @@ function cd() {
   return 1
 }
 
+function screencap() {
+  # capture screen of remote android device
+  if ! [[ $1 ]]; then
+    echo "Filename missing"
+    return 1
+  fi
+  adb shell screencap -p | perl -pe 's/\x0D\x0A/\x0A/g' > $1
+}
+
 # prompt
 PS1="\[\e[0;32m\]\u@\h\[\e[0;36m\]:\w$ \[\e[0m\]"
