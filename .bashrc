@@ -49,6 +49,8 @@ alias vi='vim'
 # easier pwd copy
 alias pwdcp='pwd | xargs echo -n | xclip'
 
+alias c='clear'
+
 # git bash completion
 source /usr/share/git/completion/git-completion.bash
 
