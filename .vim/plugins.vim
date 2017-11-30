@@ -9,6 +9,7 @@ Plugin 'sirver/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'mglb/vim-indenty'
 Plugin 'godlygeek/tabular'
+Plugin 'christoomey/vim-tmux-navigator'
 call vundle#end()
 
 filetype plugin indent on
