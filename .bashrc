@@ -43,6 +43,9 @@ alias pacman='sudo pacman --color=auto'
 # prevent accidental reboots
 alias reboot='echo nope...'
 
+# and poweroffs
+alias poweroff='echo nope...'
+
 # map vi to vim
 alias vi='vim'
 
