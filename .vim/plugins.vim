@@ -17,6 +17,7 @@ syntax on
 
 " snippets
 let g:UltiSnipsEditSplit = "vertical"
+let g:UltiSnipsExpandTrigger = "<c-j>"
 
 " indenty
 let g:indenty_msg_hl = ""
