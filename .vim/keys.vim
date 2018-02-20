@@ -25,3 +25,4 @@ nnoremap <F6> :set invpaste paste?<CR>
 set pastetoggle=<F6>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
+nmap <silent> <F3> :NERDTreeFind<CR>
