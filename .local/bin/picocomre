@@ -15,16 +15,21 @@ if [[ -z $1 ]]; then
   exit 1
 fi
 
-devices="/sys/bus/usb/drivers/*/[0-9]*/"
 tty=${1#/dev/}
 
-if [ ! -d $devices/$tty ]; then
+devices_ftdi="/sys/bus/usb/drivers/ftdi_sio/[0-9]*/"
+devices_acm="/sys/bus/usb/drivers/cdc_acm/[0-9]*/tty/"
+
+if [ -d $devices_ftdi/$tty ]; then
+  device=$(echo $devices_ftdi/$tty)
+  port=${device/$tty}
+elif [ -d $devices_acm/$tty ]; then
+  device=$(echo $devices_acm/$tty)
+  port=${device/$tty}
+else
   echo "Device $tty does not exist"
   exit 1
 fi
-
-device=$(echo $devices/$tty)
-port=${device/$tty}
 
 while [[ 1 ]]; do
   # show waiting msg if no device
@@ -48,9 +53,9 @@ while [[ 1 ]]; do
   tty=$ntty
 
   # quit if busy
-  if [[ $(lsof /dev/$tty) ]]; then
+  if [[ $(lsof /dev/ | grep $tty) ]]; then
     echo "$tty busy!"; echo
-    lsof /dev/$tty
+    lsof /dev/ | grep $tty
     exit 1
   fi
 
