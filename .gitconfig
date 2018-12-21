@@ -6,6 +6,8 @@
 	tool = vimdiff
 [difftool]
 	prompt = false
+[commit]
+	verbose = true
 [alias]
 	root = rev-parse --show-toplevel
 	statusvi = !vim \"+r! git status -s\" \"+set nomodified\"
