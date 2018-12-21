@@ -40,6 +40,9 @@ urxvt*scrollTtyOutput: false
 urxvt*scrollWithBuffer: true
 urxvt*scrollTtyKeypress: true
 
+#hide mouse pointer when typing
+urxvt*pointerBlank: true
+
 urxvt.perl-ext-common: -popupselection,-optionpopup,font-size/font-size,curplosion/curplosion
 
 #curplosion settings
