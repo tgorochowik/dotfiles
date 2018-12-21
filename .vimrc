@@ -29,6 +29,7 @@ set viminfo ^=%
 set laststatus=2
 set spelllang=en
 set showmode
+set wildmenu
 
 " prefer two spaces indent for most files
 set expandtab
