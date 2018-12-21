@@ -45,6 +45,7 @@ urxvt.perl-ext-common: -popupselection,-optionpopup,font-size/font-size,curplosi
 #curplosion settings
 urxvt.curplosion.colors: 4, 5, 4
 urxvt.curplosion.show-on-focus: true
+urxvt.curplosion.show-on-bell: true
 
 #disable unicode characters input
 urxvt.iso14755: false
