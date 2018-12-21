@@ -63,4 +63,6 @@ theme.menu_submenu_icon      = nil
 theme.tasklist_floating_icon = nil
 theme.tasklist_disable_icon  = true
 
+theme.notification_icon_size = 40
+
 return theme
