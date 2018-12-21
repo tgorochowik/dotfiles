@@ -28,7 +28,7 @@
 *color15:   #f8f8f2
 
 urxvt*transparent: false
-urxvt*font: xft:DejaVuSansMono:pixelsize=11
+urxvt*font: xft:DejaVuSansMono:pixelsize=11, xft:Symbola
 
 urxvt*scrollBar: false
 
