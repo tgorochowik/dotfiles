@@ -26,3 +26,4 @@ set pastetoggle=<F6>
 
 nmap <silent> <F2> :NERDTreeToggle<CR>
 nmap <silent> <F3> :NERDTreeFind<CR>
+nmap <silent> <F4> :UndotreeToggle<CR>
