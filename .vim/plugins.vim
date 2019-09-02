@@ -11,6 +11,7 @@ Plugin 'mglb/vim-indenty'
 Plugin 'godlygeek/tabular'
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'tpope/vim-fugitive'
+Plugin 'mbbill/undotree'
 call vundle#end()
 
 filetype plugin indent on
