@@ -2,10 +2,10 @@
 	path = vim/.vim/bundle/Vundle.vim
 	url = https://github.com/VundleVim/Vundle.vim.git
 [submodule ".urxvt/ext/curplosion"]
-	path = .urxvt/ext/curplosion
+	path = urxvt/.urxvt/ext/curplosion
 	url = https://github.com/tgorochowik/urxvt-curplosion
 [submodule ".urxvt/ext/font-size"]
-	path = .urxvt/ext/font-size
+	path = urxvt/.urxvt/ext/font-size
 	url = https://github.com/tgorochowik/urxvt-font-size.git
 [submodule "awesome/.config/awesome/battery-widget"]
 	path = awesome/.config/awesome/battery-widget
