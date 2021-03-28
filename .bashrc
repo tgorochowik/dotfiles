@@ -49,6 +49,9 @@ alias poweroff='echo nope...'
 # map vi to vim
 alias vi='vim'
 
+# fzf file opening
+alias vif='vim $(fzf)'
+
 # easier pwd copy
 alias pwdcp='pwd | xargs echo -n | xclip'
 
@@ -111,6 +114,25 @@ function cd() {
   # fail
   echo "bash: cd: $args: No such file or directory"
   return 1
+}
+
+# quickly setup ethernet
+# not portable, works fine on my setup with single usb-ethernet adapter
+# always connected to a different USB port
+function sethup() {
+  ETH_IFACE=$(ifconfig -a | grep -v ^lo: | grep -v ^wlo1: | sed -n 's/\(^[a-z0-9]\+\):.*/\1/p')
+
+  echo "Setting up: $ETH_IFACE"
+
+  sudo ifconfig "${ETH_IFACE}" up
+
+  sudo dhcpcd "${ETH_IFACE}"
+  ifconfig $ETH_IFACE
+}
+
+function bton() {
+  systemctl start bluetooth
+  bluetoothctl power on
 }
 
 function screencap() {
