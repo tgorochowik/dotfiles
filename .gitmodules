@@ -7,3 +7,6 @@
 [submodule ".urxvt/ext/font-size"]
 	path = .urxvt/ext/font-size
 	url = https://github.com/tgorochowik/urxvt-font-size.git
+[submodule "awesome/.config/awesome/battery-widget"]
+	path = awesome/.config/awesome/battery-widget
+	url = https://github.com/deficient/battery-widget.git

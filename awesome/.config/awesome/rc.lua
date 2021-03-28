@@ -185,6 +185,8 @@ awful.screen.connect_for_each_screen(function(s)
             volicon,
             volumewidget,
             sep,
+            require("battery-widget") {},
+            sep,
             mytextclock,
             sep,
             s.mylayoutbox,
