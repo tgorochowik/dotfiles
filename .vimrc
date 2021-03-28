@@ -45,6 +45,9 @@ autocmd FileType gitcommit setlocal tw=72 colorcolumn=73 spell
 " documentation configuration
 autocmd FileType rst,markdown setlocal spell spelllang=en tw=0
 
+" interview files
+autocmd FileType text setlocal spell spelllang=pl tw=0
+
 " list config
 set list
 set listchars=tab:\ \ ,trail:\ ,
