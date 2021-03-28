@@ -1,0 +1,47 @@
+#terminal colours
+*foreground:#a0a0a0
+*background:#111111
+
+#black
+*color0:    #000000
+*color8:    #505354
+#red
+*color1:    #f92672
+*color9:    #ff5995
+#green
+*color2:    #82b414
+*color10:   #b6e354
+#yellow
+*color3:    #fd971f
+*color11:   #ff9c3a
+#blue
+*color4:    #245792
+*color12:   #2d7bd2
+#magenta
+*color5:    #8c54fe
+*color13:   #9e6ffe
+#cyan
+*color6:    #465457
+*color14:   #899ca1
+#white
+*color7:    #ccccc6
+*color15:   #f8f8f2
+
+urxvt*transparent: false
+urxvt*font: xft:DejaVuSansMono:pixelsize=11
+
+urxvt*scrollBar: false
+
+#no auto scroll when not wanted
+urxvt*scrollTtyOutput: false
+urxvt*scrollWithBuffer: true
+urxvt*scrollTtyKeypress: true
+
+urxvt.perl-ext-common: -popupselection,-optionpopup,curplosion/curplosion
+
+#curplosion settings
+urxvt.curplosion.colors: 4, 5, 4
+urxvt.curplosion.show-on-focus: true
+
+#disable unicode characters input
+urxvt.iso14755: false
